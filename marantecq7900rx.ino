@@ -131,7 +131,7 @@ void rxISR()
         {//we won't receive the last idle - it becomes part of the next sequence (hence the minus1)
             rxuSecs[rxindex] = BITFREQ - delta; //allow quality detector to work well
             keyReady = 1; //we have received a 24bit code
-            rxstate = 0; //go back
+            rxstate = 1; // assume this low is beginning of next RX - go back to state 1
         }
         break;
     }
